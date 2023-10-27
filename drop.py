@@ -1,8 +1,8 @@
 import pandas as pd
 
 
-input_file = '/Users/baptiald/Downloads/Covid_Data_TROUBLESHOOTING[REDUCED].csv'
-output_file = '/Users/baptiald/Downloads/Covid_Data_TROUBLESHOOTING[REDUCEDA_ATRIBUTE].csv'
+input_file = ''
+output_file = ''
 
 df = pd.read_csv(input_file)
 df = df.drop(columns=['DIED'])

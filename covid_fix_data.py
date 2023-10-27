@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 
-input_file = '/Users/baptiald/Downloads/Covid Data.csv'
-output_file = '/Users/baptiald/Downloads/Covid_Data_TROUBLESHOOTING[REDUCED].csv'
+input_file = ''
+output_file = ''
 
 df = pd.read_csv(input_file)
 

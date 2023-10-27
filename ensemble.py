@@ -9,7 +9,7 @@ from pyod.utils.utility import standardizer
 from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score
 
 
-data = pd.read_csv('/Users/baptiald/Downloads/Covid Data.csv')
+data = pd.read_csv('//')
 
 
 data.fillna(value=np.nan, inplace=True)
@@ -36,7 +36,7 @@ data = data[columns_to_use]
 
 data = pd.DataFrame(standardizer(data), columns=columns_to_use)
 
-# Train multiple anomaly detection models
+
 models = {
     "Isolation Forest": IForest(contamination=0.05),  # Adjust contamination as needed
     "Local Outlier Factor": LOF(),
@@ -49,11 +49,11 @@ for model_name, model in models.items():
     model.fit(data)
     data[f'Anomaly_{model_name}'] = model.predict(data)
 
-# Ensemble the results of individual models
+
 data['Anomaly_Ensemble'] = average(
     data[['Anomaly_Isolation Forest', 'Anomaly_Local Outlier Factor', 'Anomaly_One-Class SVM']], axis=1)
 
-# Evaluate the results
+
 y_true = data['DIED'].astype(int)
 
 for model_name in models.keys():
